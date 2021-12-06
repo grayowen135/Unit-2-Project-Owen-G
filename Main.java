@@ -58,7 +58,7 @@ class Main {
         if (i == 4) {
           write_file.close();
         }
-    }
+      }
     // Entering the Loop //
     System.out.println("What would you like to do? \nA. Add an Item \nB. Show current inventory \nC. Exit");
     char choice_select = input.next().charAt(0);
@@ -81,6 +81,7 @@ class Main {
       // Adding an Item //
       if (choiceSelectCaps == 'A') {
         itemnumb++;
+        Object[][] addingArrayAll = new Object[itemnumb][5];
         byte l = 0;
         System.out.println("Enter the name of the item");
         input.nextLine();
@@ -110,7 +111,7 @@ class Main {
         // Writing to the File //
         for (byte i = 0; i < itemnumb; i++) {
           for (byte j = 0; j < 5; j++) {
-            write_file.write(array_all[i][j] + "\n");
+            write_file.write("\n" + array_all[i][j]);
           }
         }
         write_file.close();
@@ -132,6 +133,7 @@ class Main {
 
       // Show Inventory //
       else if (choiceSelectCaps == 'B') {
+        System.out.print("Current inventory: \n");
         Scanner myReader = new Scanner(saved_inventory);
         while (myReader.hasNextLine()) {
           String file_out = myReader.nextLine();
